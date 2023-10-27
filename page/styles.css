@@ -1,0 +1,87 @@
+
+
+/* HELLO AGAIN! I hope you read the index.html file first. */
+/* As you can tell, in CSS, comments are within the / * and * / characters. Just like in HTML they do not affect the page
+at all, they are only here to explain the code. */
+
+
+body {
+    margin: 0;
+    padding: 0;
+
+    /* This is where I use the custom font I defined in the HTML <head> element. */
+    /* You of course can use any other font, no need to use a custom one. */
+    font-family: 'Space Mono', monospace;
+}
+
+/* HEADER */
+/* This is an organizational comment. I am letting you know that from here there are styles that affect the header.
+Good to know, isn't it? */
+
+header {
+    width: 100%;
+    background: linear-gradient(266deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 5%, rgba(0, 212, 255, 1) 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    margin: 10px;
+}
+
+/* Images are rendered in their actual size by default. Make sure to set their size as you like */
+#hyf-logo-img {
+    width: 10%;
+}
+
+#title-header-row-div {
+    justify-content: space-between;
+}
+
+.header-row-div {
+    display: flex;
+    flex-direction: row;
+}
+
+/* This style tells CSS that every element that is inside an element with the .header-row-div class should be padded. */
+.header-row-div * {
+    margin: 10px;
+}
+
+/* MAIN */
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: grey;
+    gap: 10px;
+    padding: 10px;
+}
+
+#project-container-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.project-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* I want to define a style on the images in my projects section. But I do not want to use the selector for 
+the element type <img>, since than that would affect the HYF logo in the header too. Using this selector, I only set the 
+style on images that are WITHIN the elements with class .project-div */
+.project-div img {
+    width: 35%;
+}

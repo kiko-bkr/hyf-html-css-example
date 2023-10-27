@@ -1,0 +1,220 @@
+
+
+
+<!-- 
+    
+
+What is this? This is an HTML comment. This text is not even noticed by HTML, it has no effect on the look of the page.
+The only reason comments serve is to explain code to a person who did not write it. That person is you!
+
+This is precisely why it is very important to comment your code if some part of it is a bit more complex,
+and you want to save the time of the person who will work on your code next. Comments are our friends, let us use them.
+
+So from now on I will comment all the different components and their purpose. 
+
+In HTML, everything in between the characters < ! - - and - - > are considered as comments.
+
+Note that if these comments were not here, the document would work just the same. If you want to take parts of 
+this document, the comments are not necessary.
+
+-->
+
+
+
+<!-- 
+    Doctype? That stands for 'document type'. This tag is placed on top of every HTML page. Its purpose is to tell 
+    the web browser that this file is in fact an HTML, and should be treated as such. Make sure to add it. 
+-->
+<!DOCTYPE html>
+
+
+<!-- 
+    The <html> tag should wrap your whole html document. It does not affect the look of your page. It is purely
+    to organize your document better, and tell the browser the actual part of the document to pay attention to.  
+    Again, do not forget to use it.
+
+    Another important detail is to tell the internet browser what language your document is written in.
+    This helps people who are searching for pages in Google in a specific language. The browser will know to not 
+    consider your page if it is not written in the proper language.
+-->
+<html lang="en-us">
+
+
+<!-- The <head> tag will contain all the necessary information about your document. Here we declare the following: -->
+<head>
+
+    <!-- This <meta> tag tells the browser what character encoding to use. You definitely do not have to know what
+    a character encoding is, and I definitely will not explain it here haha. Make sure to add this. -->
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- Here we link a CSS file to this HTML file. Notice how we just put the file's name in the href property.
+    That is because the file is in the same folder as our index.html file. 
+
+    From now on all of the CSS rules from that file apply to our HTML.
+    -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- This is a col trick. ONLY IF YOU WANT, you can use custom fonts in your webpage.
+    
+        Here is the link explaining how you can get these kind of links, in order to get a custom font.
+        https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- The <title> tag is very important! It basically sets the name of the page, as in the name of the tab that 
+        the browser will open this page in. Try changing this title and see the name of the browser tab change!
+    -->
+    <title>HYF Example</title>
+</head>
+
+<!-- Now comes the body of the page. Here we actually start building the page, using elements that will actually
+show up in the webpage. First and foremost, let us make sure that we structure this code using semantic elements. -->
+
+<body>
+    <!-- Ah! The <header> of the page. This is the first semantic element of the code. This element's name suggests That
+    this element will act like a narrow strip of content at the top of the page, either as a decoration, a title,
+    or as a helper in navigation. In my header all of these purposes are fulfilled.  -->
+    <header>
+        <!-- I want my header to look like this:
+                - I want two rows
+                    - The first one will contain the main heading of the page. I want this to be in the top left.
+                        I want it to also contain the HYF logo, but that I want to be in the top right, so opposite
+                        of the header. Thankfully, this can be done easily using flex.
+                    - In the second row I want to have some navigation links that point to sections in the page.
+                
+            Now that I know this, I will accomplish it using flexbox:
+                - the two rows have to be under each other, in a column, this is why in the styles.css file I set the
+                  <header> element to be a flexbox, with flex-direction: column;
+                - to make the rows actual rows, meaning their children elements are next to each other, I give the 
+                  two <div> elements the class "header-row-div", since both of them have to have the same style, and this
+                  way it is enough that I define the style only on the class, instead of on both elements
+                - one more thing: I want that the first row puts its elements on the two ends, which I can do with
+                the justify-content property of a flex container. I set this style on the id of the first row, that being
+                "title-header-row-div"
+        -->
+
+        <div id="title-header-row-div" class="header-row-div">
+            <h1>My Résumé</h1>
+            <img id="hyf-logo-img" src="images/hyf.svg" alt="HYF Logo">
+        </div>
+        <div class="header-row-div">
+            <!-- I refer to parts of the page using an <a> element, and referring to ids, like #education-section -->
+            <a href="#education-section">Education</a>
+            <a href="#projects-section">Projects</a>
+            <a href="#volunteering-section">Volunteering</a>
+        </div>
+    </header>
+
+    <!-- Now comes the main section -->
+
+    <main>
+
+        <!-- What I want to do in <main> is the opposite of what I wanted to do in <header>. I want two columns, one acting as 
+        a sidebar, containing links to my contacts, and the other part would be the actual text section.
+
+        So, again, I set that the big container (<main>) should be display: flex; (in styles.css) and this time
+        the flex-direction should be row, as to make the columns stay next to each other horizontally. -->
+
+        <!-- This is the sidebar. Here, I will link my fictional contacts. 
+        The cool thing here is to see the <a> element's href attributes. Using custom links like "tel:" or "mailto:",
+            clicking on these links immediately open a calling program, or an email program. Try clicking on them! -->
+        <section id="sidebar">
+            <h3>Name Nameston</h3>
+            <h4>Contacts</h4>
+            <ol>
+                <li><a href="https://facebook.com">Facebook</a></li>
+                <li><a href="tel:+45 76 54 32 10">Whatsapp</a></li>
+                <li><a href="mailto:someone@somewhere.com">Email</a></li>
+            </ol>
+        </section>
+
+        <!-- This <div> acts as the wider column. -->
+
+        <div>
+            <!-- I declare 3 sections in this div. Notice that these are the divs that I reference in the header,
+                using their IDs. Each section has a heading to explain its purpose.
+            -->
+
+            <section id="education-section">
+                <h2>Education</h2>
+                <ul>
+                    <li>
+                        <h4>University of Somewhere</h4>
+                        <ul>
+                            <li>
+                                Sed volutpat, massa et lacinia ultricies, nisi ligula vestibulum quam, eu lobortis nulla
+                                leo eget mauris. Maecenas
+                                lobortis elit vel ultricies elementum. Morbi ipsum mauris, finibus ut orci in, tincidunt
+                                sollicitudin erat. Integer
+                                placerat, lectus vel cursus pretium, erat massa ornare tellus, nec accumsan urna diam at
+                                ex.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4>High School</h4>
+                        <ul>
+                            <li>
+                                Vestibulum luctus viverra lectus. Maecenas gravida velit scelerisque lorem bibendum, eu
+                                tincidunt elit commodo. Vivamus
+                                suscipit, mi a bibendum posuere, ligula turpis commodo metus, a pharetra leo leo id
+                                turpis. Pellentesque habitant morbi
+                                tristique senectus et netus et malesuada fames ac turpis egestas. Etiam mattis sapien
+                                quis massa feugiat porttitor.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- This is the part of the CV where I link my projects. In order to make this nicer, I want the links to 
+            be accompanied by images. Notice that each image of this porject is in the images folder, and the path I use
+            to use them in <img> elements contains this folder. -->
+
+            <!--
+                The way I got these images and their links to be under each other, and centralized is again: using flex.
+                I set this section's <div> to have a row direction, such that the images are next to each other.
+                I put the images and their links in separate divs, and then set those divs to be flex, have column direction,
+                and to align their items in the center. I set these styles on the .project-div class, because I
+                want the <div> elements to share their styles.
+            -->
+
+            <section id="projects-section">
+                <h2>Projects</h2>
+                <div id="project-container-div">
+                    <div class="project-div">
+                        <img src="images/github.png" alt="Github Logo">
+                        <a href="https://github.com/kiko-bkr">My Github Profile</a>
+                    </div>
+                    <div class="project-div">
+                        <img src="images/webpage.png" alt="Webpage Icon">
+                        
+                        <!-- IMPORTANT: Notice that in this folder there is another folder called 'other_page'.
+                            In that folder there is another index.html, and another styles.css. That means the path from
+                            this HTML file to the other is by following 'other_page', and the 'index.html'. Combining this,
+                            we can link to the other page, in the other folder.
+                        -->
+                        
+                        <a href="other_page/index.html">My Very Own Webpage!</a>
+                    </div>
+                </div>
+            </section>
+            <section id="volunteering-section">
+                <h2>Volunteering</h2>
+                <p>
+                <ul>
+                    <li>HYF Aarhus</li>
+                    <li>Something else</li>
+                </ul>
+                </p>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

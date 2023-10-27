@@ -1,0 +1,33 @@
+<!-- Notice how I also define all the recommended elements in this page too. For example
+DOCTYPE, html, charset etc. -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <!-- You might find it confusing that I use styles.css again. Isn't it used by the other 
+    HTML file too? Remember, this HTML file is in the 'other_page' folder, meaning this
+    styles.css refers to other_page/styles.css. -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <title>Secret Page</title>
+</head>
+<body>
+    <h1>HEY! What are you doing here?! 😳</h1>
+
+    <!-- Using two dots (..) we can refer to the folder outside of the current one. This way we 
+    can link back to the previous folder, and the previous page. (which is index.html, in the 
+    outside folder) -->
+    <a href="../index.html">Go back to where you came from! 😡</a>
+</body>
+
+</html>
